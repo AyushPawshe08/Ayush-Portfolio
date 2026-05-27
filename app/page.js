@@ -7,9 +7,8 @@ import {
 } from "../components/portfolio/home";
 import { introSections } from "../components/portfolio/data/profile";
 
-// Explicit page-level OG metadata — crawlers (LinkedIn, Twitter) read this
-// directly from the rendered HTML. Repeating it here ensures og:type = "website"
-// is never overridden or missing in a static export.
+// Page-level OG override — ensures og:type = "website" is explicit in the
+// rendered HTML so LinkedIn Post Inspector reads it correctly.
 export const metadata = {
   openGraph: {
     type: "website",

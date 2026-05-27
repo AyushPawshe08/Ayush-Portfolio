@@ -1,54 +1,56 @@
-import {
-  AboutSection,
-  ContactSection,
-  HeroSection,
-  ProjectsPreviewSection,
-  StackSection,
-} from "../components/portfolio/home";
-import { introSections } from "../components/portfolio/data/profile";
+import "./globals.css";
 
-// 1. Root level metadata ensures standard HTML tags (<title>, <meta name="description">) are rendered.
-// 2. Explicitly setting openGraph forces LinkedIn to view this as a website, not an article.
 export const metadata = {
+  // ── Core ──────────────────────────────────────────────────────────────────
+  metadataBase: new URL("https://ayushpawshe.pages.dev"),
+
   title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
   description:
     "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
-  metadataBase: new URL("https://ayushpawshe.pages.dev"),
+
+  // ── Open Graph (LinkedIn, Facebook, iMessage, Slack …) ───────────────────
   openGraph: {
     type: "website",
     url: "https://ayushpawshe.pages.dev",
+    siteName: "Ayush Pawshe Portfolio",
     title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
     description:
       "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
-    siteName: "Ayush Pawshe Portfolio",
     images: [
       {
-        url: "/og-image.png", // Next.js resolves this automatically using metadataBase
+        url: "https://ayushpawshe.pages.dev/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ayush Pawshe – API Infrastructure & Backend Engineer portfolio preview",
+        type: "image/png",
       },
     ],
+    locale: "en_US",
   },
+
+  // ── Twitter / X Card ──────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
     title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
     description:
       "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
-    images: ["/og-image.png"],
+    images: ["https://ayushpawshe.pages.dev/og-image.png"],
+  },
+
+  // ── Additional SEO ─────────────────────────────────────────────────────────
+  alternates: {
+    canonical: "https://ayushpawshe.pages.dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
-export default function Home() {
+export default function RootLayout({ children }) {
   return (
-    <main className="bg-black text-slate-100">
-      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col px-6 pb-24 pt-8 sm:px-8 md:px-12 lg:px-16">
-        <HeroSection />
-        <ProjectsPreviewSection />
-        <AboutSection sections={introSections} />
-        <StackSection />
-        <ContactSection />
-      </div>
-    </main>
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
   );
 }
