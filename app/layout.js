@@ -18,7 +18,7 @@ export const metadata = {
       "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
     images: [
       {
-        url: "/og-image.png",          // resolves to https://ayushpawshe.pages.dev/og-image.png
+        url: "https://ayushpawshe.pages.dev/og-image.png", // absolute — never breaks
         width: 1200,
         height: 630,
         alt: "Ayush Pawshe – API Infrastructure & Backend Engineer portfolio preview",
@@ -34,7 +34,7 @@ export const metadata = {
     title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
     description:
       "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
-    images: ["/og-image.png"],
+    images: ["https://ayushpawshe.pages.dev/og-image.png"],
   },
 
   // ── Additional SEO ────────────────────────────────────────────────────────
