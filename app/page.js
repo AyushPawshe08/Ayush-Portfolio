@@ -7,25 +7,35 @@ import {
 } from "../components/portfolio/home";
 import { introSections } from "../components/portfolio/data/profile";
 
-// Explicit page-level OG metadata — crawlers (LinkedIn, Twitter) read this
-// directly from the rendered HTML. Repeating it here ensures og:type = "website"
-// is never overridden or missing in a static export.
+// 1. Root level metadata ensures standard HTML tags (<title>, <meta name="description">) are rendered.
+// 2. Explicitly setting openGraph forces LinkedIn to view this as a website, not an article.
 export const metadata = {
+  title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+  description:
+    "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+  metadataBase: new URL("https://ayushpawshe.pages.dev"),
   openGraph: {
     type: "website",
     url: "https://ayushpawshe.pages.dev",
     title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
     description:
       "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+    siteName: "Ayush Pawshe Portfolio",
     images: [
       {
-        url: "https://ayushpawshe.pages.dev/og-image.png",
+        url: "/og-image.png", // Next.js resolves this automatically using metadataBase
         width: 1200,
         height: 630,
         alt: "Ayush Pawshe – API Infrastructure & Backend Engineer portfolio preview",
-        type: "image/png",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+    description:
+      "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+    images: ["/og-image.png"],
   },
 };
 
