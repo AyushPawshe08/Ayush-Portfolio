@@ -1,5 +1,5 @@
-import { FolderGrid } from "../../components/portfolio/projects/FolderGrid";
 import { allProjects } from "../../components/portfolio/data/projects";
+import ProjectSearch from "../../components/portfolio/projects/ProjectSearch";
 import Link from "next/link";
 
 export const metadata = {
@@ -8,6 +8,17 @@ export const metadata = {
 };
 
 export default function ProjectsPage() {
+  const searchableProjects = allProjects.map((project) => ({
+    title: project.title,
+    slug: project.slug,
+    folderName: project.folderName,
+    summary: project.summary,
+    description: project.description,
+    status: project.status,
+    tone: project.tone,
+    thumbnail: project.thumbnail,
+  }));
+
   return (
     <main className="bg-black text-slate-100">
       {/* Single centered wrapper — all content inside is symmetrically padded */}
@@ -25,14 +36,14 @@ export default function ProjectsPage() {
 
         {/* Page heading */}
         <section className="w-full py-8 sm:py-12">
-          <h1 className="max-w-[15ch] text-2xl text-balance font-medium leading-[0.99] tracking-[-0.055em] sm:text-3xl md:text-4xl">
-            all projects I&apos;ve built and shipped...
+          <h1 className=" text-2xl text-balance font-medium leading-[0.99] tracking-[-0.055em] sm:text-3xl md:text-4xl">
+            A collection of things I&apos;ve built, shipped, and learned from.
           </h1>
         </section>
 
-        {/* Project grid */}
+        {/* Project search and grid */}
         <section className="w-full py-6 sm:py-10">
-          <FolderGrid projects={allProjects} columns={3} />
+          <ProjectSearch projects={searchableProjects} />
         </section>
 
       </div>

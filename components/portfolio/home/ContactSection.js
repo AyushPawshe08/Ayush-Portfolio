@@ -11,7 +11,7 @@ export function ContactSection() {
         </h2>
 
         {/* Contact links */}
-        <div className="divide-y divide-white/15">
+        <div className="contact-list divide-y divide-white/15">
           {contacts.map((contact) => (
             <ContactRow key={contact.label} contact={contact} />
           ))}

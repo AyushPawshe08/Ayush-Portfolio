@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { featuredProjects } from "../data/projects";
 import { ArrowUpRightIcon } from "../shared/Icons";
-import { FolderGrid } from "../projects/FolderGrid";
+import { FolderGrid } from "../projects/ProjectGrid";
 
 export function ProjectsPreviewSection() {
   return (
@@ -24,6 +24,19 @@ export function ProjectsPreviewSection() {
       {/* Project grid */}
       <div className="mt-12 w-full md:mt-14">
         <FolderGrid projects={featuredProjects} columns={2} withSummary={false} />
+      </div>
+
+      {/* View all projects CTA */}
+      <div className="mt-10 flex justify-center sm:mt-12">
+        <Link
+          href="/projects"
+          className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/2 px-6 py-3 text-sm font-medium text-slate-200 shadow-[0_8px_24px_rgba(0,0,0,0.2)] backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:border-white/25 hover:bg-white/6 hover:text-white"
+        >
+          <span>View all</span>
+          <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+            →
+          </span>
+        </Link>
       </div>
     </section>
   );

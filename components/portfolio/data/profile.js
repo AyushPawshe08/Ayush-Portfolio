@@ -1,18 +1,14 @@
 export const profile = {
   name: "Ayush Pawshe",
-  role: "Full-Stack Developer",
-  availability: "Open to New Opportunities",
+  role: ["Backend Engineer", "API Infrastructure", "Async Systems"],
+  availability: "Available for work",
 };
 
 export const introSections = [
-  {
-    title: "Hello.",
-    body:
-      "I'm a Final Year Artificial Intelligence and Data Science student who enjoys solving problems and building impactful technology solutions. I am passionate about learning new tools, exploring modern technologies, and continuously improving my engineering skills.",
-  },
-  {
-    title: "How I Can Help",
-    body:
-      "I specialize in building scalable backend systems using FastAPI, PostgreSQL, Docker, and modern web technologies. I have experience designing modular REST APIs and integrating intelligent features into real-world applications. I enjoy solving complex engineering problems and developing reliable, maintainable systems that create meaningful impact.",
-  },
+  "Backend engineer focused on async systems and API infrastructure, building things that prioritize reliability, clean architecture, and real-world correctness.",
+  "Built production-grade async task pipelines using Celery and Redis: parallel LLM workflows, idempotent result persistence, automatic retries, and fire-and-poll APIs backed by PostgreSQL.",
+  "Designed and shipped REST APIs across auth, data processing, and ML integration: 21-endpoint FastAPI backend with JWT auth, RBAC, refresh token rotation, and bcrypt hashing.",
+  "Experienced in integrating ML models and LLM pipelines into backend systems: Random Forest ensembles for risk scoring, LangGraph state machines for agentic research workflows.",
+  "Comfortable shipping across the stack when needed, but most interested in backend architecture, async systems, and AI-backend integration problems.",
+  "Participated in Mumbai Hacks 2025 with 3500+ participants, building an end-to-end misinformation detection system with LLM-based classification under time pressure.",
 ];

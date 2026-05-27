@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, allProjects } from "../../../components/portfolio/data/projects";
-import { ArrowUpRightIcon } from "../../../components/portfolio/shared/Icons";
 
 // ─── Static params for build ──────────────────────────────────────────────────
 export function generateStaticParams() {
@@ -20,14 +20,7 @@ export async function generateMetadata({ params }) {
 }
 
 // ─── Tone colour map (mirrors FolderCard) ─────────────────────────────────────
-const toneAccent = {
-  rose: { pill: "border-[#ff746e]/40 bg-[#ff746e]/10 text-[#ff9e9a]", dot: "bg-[#ff746e]" },
-  sky: { pill: "border-[#80ade4]/40 bg-[#80ade4]/10 text-[#a8caf0]", dot: "bg-[#80ade4]" },
-  violet: { pill: "border-[#8f6bbc]/40 bg-[#8f6bbc]/10 text-[#b89fd8]", dot: "bg-[#9b8fb8]" },
-  mint: { pill: "border-[#9dd5c4]/40 bg-[#9dd5c4]/10 text-[#a7d0c0]", dot: "bg-[#9dd5c4]" },
-  blush: { pill: "border-[#efa3aa]/40 bg-[#efa3aa]/10 text-[#f5bfc4]", dot: "bg-[#efa3aa]" },
-  slate: { pill: "border-[#9f9db7]/40 bg-[#9f9db7]/10 text-[#bab8ce]", dot: "bg-[#9f9db7]" },
-};
+
 
 // ─── GitHub icon ──────────────────────────────────────────────────────────────
 function GithubIcon({ className }) {
@@ -55,14 +48,14 @@ export default async function ProjectDetailPage({ params }) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const accent = toneAccent[project.tone] ?? toneAccent.slate;
+  // const accent = toneAccent[project.tone] ?? toneAccent.slate;
 
   return (
     <main className="min-h-screen bg-black text-slate-100">
       <div className="mx-auto w-full max-w-[1280px] px-6 pb-32 pt-6 sm:px-8 md:px-12 lg:px-16">
 
         {/* ── Top bar: back + action links ──────────────────────────── */}
-        <nav className="flex items-center justify-between gap-4 py-6">
+        <nav className="flex items-center gap-4 py-6">
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/8"
@@ -72,40 +65,11 @@ export default async function ProjectDetailPage({ params }) {
             </svg>
             Back to projects
           </Link>
-
-          {/* GitHub + Live links */}
-          <div className="flex items-center gap-3">
-            {project.github && (
-              <Link
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View on GitHub"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/10"
-              >
-                <GithubIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">GitHub</span>
-              </Link>
-            )}
-            {project.live && (
-              <Link
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View live demo"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/10"
-              >
-                <ExternalLinkIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">Live Demo</span>
-              </Link>
-            )}
-          </div>
         </nav>
 
         {/* ── Hero: title + summary ─────────────────────────────────── */}
         <section className="mt-6 sm:mt-10">
-          {/* Tone dot */}
-          <span className={`mb-4 inline-block h-2.5 w-2.5 rounded-full ${accent.dot}`} />
+          
 
           <h1 className="mt-3 text-3xl font-medium leading-tight tracking-[-0.05em] sm:text-4xl md:text-5xl lg:text-6xl">
             {project.title}
@@ -116,25 +80,65 @@ export default async function ProjectDetailPage({ params }) {
           </p>
         </section>
 
-        {/* ── Optional video ────────────────────────────────────────── */}
-        {project.video && (
-          <section className="mt-14 sm:mt-20">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/4">
+        {/* ── Project media ─────────────────────────────────────────── */}
+        <section className="mt-14 sm:mt-20">
+          <div className="overflow-hidden rounded-[8px] border border-white/10 bg-black">
+            {project.video ? (
               <video
                 src={project.video}
+                poster={project.thumbnail}
                 controls
-                className="w-full rounded-2xl"
+                playsInline
+                className="aspect-video w-full bg-black object-contain"
                 aria-label={`${project.title} demo video`}
               />
-            </div>
-          </section>
-        )}
+            ) : (
+              <div className="relative aspect-video w-full bg-black">
+                <Image
+                  src={project.thumbnail}
+                  alt={`${project.title} preview image`}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            )}
+          </div>
+        </section>
 
         {/* ── Divider ───────────────────────────────────────────────── */}
-        <div className="mt-16 border-t border-white/10 sm:mt-20" />
+        {(project.live || project.github) && (
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {project.live && (
+              <Link
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${project.title} live demo`}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/15 bg-white px-4 text-sm font-semibold text-slate-950 transition hover:bg-slate-200"
+              >
+                <ExternalLinkIcon className="h-4 w-4 text-slate-950" />
+                <span className="text-slate-950">Live Demo</span>
+              </Link>
+            )}
+            {project.github && (
+              <Link
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${project.title} source code`}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/15 bg-white/[0.04] px-4 text-sm font-semibold text-slate-100 transition hover:bg-white/[0.08]"
+              >
+                <GithubIcon className="h-4 w-4" />
+                Source Code
+              </Link>
+            )}
+          </div>
+        )}
 
         {/* ── Detailed description ──────────────────────────────────── */}
-        <section className="mt-14 grid gap-6 lg:grid-cols-[minmax(180px,260px)_1fr] lg:gap-16 sm:mt-16">
+        <section className="mt-14 grid gap-6 border-t border-white/10 pt-14 lg:grid-cols-[minmax(180px,260px)_1fr] lg:gap-16 sm:mt-16 sm:pt-16">
           <h2 className="text-xl font-medium leading-none tracking-[-0.05em] text-slate-100 sm:text-2xl">
             About
           </h2>
@@ -154,7 +158,7 @@ export default async function ProjectDetailPage({ params }) {
               return (
                 <div
                   key={item.label}
-                  className={`inline-flex h-8 items-center gap-1.5 rounded-full border px-2.5 text-[0.72rem] font-medium backdrop-blur-sm sm:h-10 sm:gap-2 sm:px-3 sm:text-[0.85rem] ${accent.pill}`}
+                  className={`inline-flex h-8 items-center gap-1.5 rounded-full border px-2.5 text-[0.72rem] font-medium backdrop-blur-sm sm:h-10 sm:gap-2 sm:px-3 sm:text-[0.85rem] `}
                 >
                   <span
                     className="flex h-4 w-4 items-center justify-center"

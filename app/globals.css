@@ -27,3 +27,181 @@ button {
 ::selection {
   background: rgba(255, 255, 255, 0.16);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Light & Dark Theme Styling overrides
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Global smooth transition for theme shifting */
+html,
+body,
+header,
+section,
+footer,
+article,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+button,
+svg,
+ul,
+li,
+nav {
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode styles */
+html.light {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.light body {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.light ::selection {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+html.light .bg-black {
+  background-color: #ffffff !important;
+}
+
+html.light .text-slate-100,
+html.light .text-slate-200,
+html.light .text-slate-300,
+html.light .text-slate-50,
+html.light .text-white {
+  color: #000000 !important;
+}
+
+html.light .text-slate-400 {
+  color: #4b5563 !important; /* dark gray */
+}
+
+html.light .text-slate-500 {
+  color: #6b7280 !important; /* medium gray */
+}
+
+/* Light mode – borders (broad fallback for all sections) */
+html.light section,
+html.light article,
+html.light header,
+html.light nav,
+html.light div {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode – subtle background surfaces */
+html.light .bg-white\/2,
+html.light .bg-white\/3,
+html.light .bg-white\/5,
+html.light .bg-white\/6,
+html.light .bg-white\/8,
+html.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Light mode – list markers */
+html.light ul {
+  --tw-prose-bullets: rgba(0, 0, 0, 0.3);
+}
+
+html.light li::marker {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+html.light .theme-btn {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Light mode adjustment for input fields and specific interactive states */
+html.light input,
+html.light textarea {
+  color: #000000 !important;
+  background-color: #f9fafb !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   About Section Points (Dark & Light theme specifics)
+   ───────────────────────────────────────────────────────────────────────────── */
+.about-point,
+.about-point * {
+  color: #ffffff !important;
+}
+
+.about-point strong {
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+/* Light Mode – About */
+html.light .about-point,
+html.light .about-point * {
+  color: #374151 !important;
+}
+
+html.light .about-point strong {
+  font-weight: 700 !important;
+  color: #000000 !important;
+}
+
+html.light .about-point:hover,
+html.light .about-point:hover * {
+  color: #111827 !important;
+}
+
+html.light .about-point:hover strong {
+  color: #000000 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Project Cards – Light Mode borders & divider
+   ───────────────────────────────────────────────────────────────────────────── */
+html.light .project-card {
+  background-color: #f9fafb !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .project-card:hover {
+  background-color: #f3f4f6 !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+html.light .project-card div,
+html.light .project-card img {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Theme Button & StackPill – Light Mode borders
+   ───────────────────────────────────────────────────────────────────────────── */
+html.light .theme-btn {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .theme-btn:hover {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Contact Section – Light Mode divider lines
+   ───────────────────────────────────────────────────────────────────────────── */
+html.light .contact-list > * + * {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
