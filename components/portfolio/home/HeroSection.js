@@ -8,27 +8,25 @@ import { SparkIcon } from "../shared/Icons";
 import { RotatingRole } from "../shared/RotatingRole";
 
 export function HeroSection() {
-  const [theme, setTheme] = useState("dark");
+  // ✅ Lazy initializer — reads localStorage once on first render, no useEffect needed.
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark";
+    return localStorage.getItem("theme") || "dark";
+  });
 
+  // Sync the <html> class whenever theme changes (this is a side-effect, not a setState call).
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
-    if (savedTheme === "light") {
+    if (theme === "light") {
       document.documentElement.classList.add("light");
     } else {
       document.documentElement.classList.remove("light");
     }
-  }, []);
+  }, [theme]);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
-    if (nextTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
   };
 
   return (
