@@ -18,7 +18,7 @@ export const allProjects = [
     status: "Live",
     tone: "emerald",
     thumbnail: "/images/AIResearch/aiResearchthumbnail.png",
-    video: "/images/AIResearch/aiResearch.mp4",
+    video: "",
     github: "https://github.com/AyushPawshe08",
     live: null,
     tech: [
