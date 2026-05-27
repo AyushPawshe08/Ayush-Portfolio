@@ -1,8 +1,50 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Ayush Portfolio",
-  description: "Portfolio layout rebuilt from reference screenshots.",
+  // ── Core ─────────────────────────────────────────────────────────────────
+  metadataBase: new URL("https://ayushpawshe.pages.dev"),
+
+  title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+  description:
+    "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+
+  // ── Open Graph (LinkedIn, Facebook, iMessage, Slack, …) ──────────────────
+  openGraph: {
+    type: "website",
+    url: "https://ayushpawshe.pages.dev",
+    siteName: "Ayush Pawshe Portfolio",
+    title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+    description:
+      "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+    images: [
+      {
+        url: "/og-image.png",          // resolves to https://ayushpawshe.pages.dev/og-image.png
+        width: 1200,
+        height: 630,
+        alt: "Ayush Pawshe – API Infrastructure & Backend Engineer portfolio preview",
+        type: "image/png",
+      },
+    ],
+    locale: "en_US",
+  },
+
+  // ── Twitter / X Card ─────────────────────────────────────────────────────
+  twitter: {
+    card: "summary_large_image",
+    title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+    description:
+      "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+    images: ["/og-image.png"],
+  },
+
+  // ── Additional SEO ────────────────────────────────────────────────────────
+  alternates: {
+    canonical: "https://ayushpawshe.pages.dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
