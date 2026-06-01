@@ -14,7 +14,7 @@ export function FolderGrid({ projects, columns = 3 }) {
           slug: project.slug,
           folderName: project.folderName,
           summary: project.summary,
-          description: project.description,
+          description: project.summary,
           status: project.status,
           tone: project.tone,
           thumbnail: project.thumbnail,

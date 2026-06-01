@@ -21,7 +21,7 @@ const toneStyles = {
 
 export default function ProjectCard({ project }) {
   const tone = toneStyles[project.tone] ?? toneStyles.sky;
-  const cardDescription = project.description || project.summary;
+  const cardDescription =  project.summary;
 
   return (
     <article className={`project-card group overflow-hidden rounded-[8px] border border-white/10 bg-[#050505] text-left transition-all duration-300 hover:scale-[1.01] hover:bg-[#070707] ${tone.card}`}>

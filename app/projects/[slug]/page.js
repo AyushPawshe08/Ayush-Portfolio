@@ -47,6 +47,9 @@ export default async function ProjectDetailPage({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
+  const descriptionParagraphs = Array.isArray(project.description)
+    ? project.description
+    : [project.description];
 
   // const accent = toneAccent[project.tone] ?? toneAccent.slate;
 
@@ -142,9 +145,11 @@ export default async function ProjectDetailPage({ params }) {
           <h2 className="text-xl font-medium leading-none tracking-[-0.05em] text-slate-100 sm:text-2xl">
             About
           </h2>
-          <p className="text-base leading-[1.75] tracking-[-0.02em] text-slate-300 sm:text-lg">
-            {project.description}
-          </p>
+          <div className="space-y-5 text-base leading-[1.75] tracking-[-0.02em] text-slate-300 sm:text-lg">
+            {descriptionParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </section>
 
         {/* ── Tech stack ───────────────────────────────────────────── */}
