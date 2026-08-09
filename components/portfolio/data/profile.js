@@ -1,6 +1,6 @@
 export const profile = {
   name: "Ayush Pawshe",
-  role: ["Backend Engineer", "API Infrastructure", "Async Systems"],
+  role: ["Backend Engineer","AI Engineer", "Full Stack Engineer", "Data Analyst", "Mern Stack Developer"],
   availability: "Available for work",
 };
 

@@ -139,6 +139,34 @@ const projects = [
       { label: "JWT Auth", accent: "#000000", icon: SiJsonwebtokens },
     ],
   },
+   {
+    title: "HotShot - A custom URL shortner app",
+    slug: "5",
+    folderName: "HotShot",
+    summary:
+      "Create clean, shareable links with QR codes in seconds. Perfect for campaigns, portfolios, and professional sharing.",
+    description: [
+      "CodeSageAI reviews source code and returns structured feedback focused on readability, refactoring opportunities, and implementation quality. It is designed to help developers identify improvement areas faster during the development workflow.",
+      "The platform uses the GPT-OSS-120B model to generate concise, technically grounded review output. Suggestions are organized to make the feedback easier to scan, prioritize, and apply.",
+      "FastAPI powers the backend API, while React and Tailwind CSS provide the frontend experience. Docker, GitHub Actions, JWT authentication, and PostgreSQL on Neon support deployment, security, and persistence.",
+    ],
+    status: "Live",
+    tone: "emerald",
+    thumbnail: "/images/HotShot/HotShot.png",
+    github: "https://github.com/AyushPawshe08/HotShot",
+    live: "https://hotshot-delta.vercel.app/",
+    tech: [
+      { label: "React", accent: "#61DAFB", icon: SiReact },
+      { label: "Tailwind CSS", accent: "#06B6D4", icon: SiTailwindcss },
+      { label: "FastAPI", accent: "#009688", icon: SiFastapi },
+      { label: "Python", accent: "#3776AB", icon: SiPython },
+      { label: "OpenAI GPT-OSS-120B", accent: "#412991", icon: SiOpenai },
+      { label: "GitHub Actions", accent: "#2088FF", icon: SiGithubactions },
+      { label: "Docker", accent: "#2496ED", icon: SiDocker },
+      { label: "PostgreSQL (Neon)", accent: "#4169E1", icon: SiPostgresql },
+      { label: "JWT Auth", accent: "#000000", icon: SiJsonwebtokens },
+    ],
+  },
 ];
 
 export const allProjects = [...projects].sort(
