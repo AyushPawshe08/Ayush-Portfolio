@@ -1,14 +1,27 @@
 export const profile = {
   name: "Ayush Pawshe",
-  role: ["Backend Engineer","AI Engineer", "Full Stack Engineer", "Data Analyst", "Mern Stack Developer"],
+
+  role: [
+    "Software Developer",
+    "Backend Engineer",
+    "AI/ML Engineer",
+    "Full Stack Engineer"
+  ],
+
   availability: "Available for work",
 };
 
 export const introSections = [
-  "Backend engineer focused on async systems and API infrastructure, building things that prioritize reliability, clean architecture, and real-world correctness.",
-  "Built production-grade async task pipelines using Celery and Redis: parallel LLM workflows, idempotent result persistence, automatic retries, and fire-and-poll APIs backed by PostgreSQL.",
-  "Designed and shipped REST APIs across auth, data processing, and ML integration: 21-endpoint FastAPI backend with JWT auth, RBAC, refresh token rotation, and bcrypt hashing.",
-  "Experienced in integrating ML models and LLM pipelines into backend systems: Random Forest ensembles for risk scoring, LangGraph state machines for agentic research workflows.",
-  "Comfortable shipping across the stack when needed, but most interested in backend architecture, async systems, and AI-backend integration problems.",
-  "Participated in Mumbai Hacks 2025 with 3500+ participants, building an end-to-end misinformation detection system with LLM-based classification under time pressure.",
+  "Software Developer focused on building reliable backend systems and AI-powered applications, with hands-on experience across Python, FastAPI, PostgreSQL, Redis, Celery, and Docker.",
+
+  "Built and shipped backend systems involving REST APIs, authentication, asynchronous processing, background task queues, concurrent workflows, database persistence, and AI/ML model integration.",
+
+  "Built CareerLens, a 21-endpoint FastAPI backend with JWT authentication, RBAC, refresh-token rotation, SQLAlchemy, PostgreSQL, and Redis-backed Celery workflows for parallel LLM processing.",
+
+  "Developed AI systems ranging from agentic research and RAG pipelines using LangChain, pgvector, HuggingFace, and Mistral AI to ML applications involving credit-risk prediction, SHAP explainability, and PyTorch-based computer vision.",
+
+  "Comfortable working across the stack with React, Next.js, AWS, Docker, CI/CD, and REST APIs, while primarily interested in backend engineering, AI integration, and building practical software systems.",
+
+  "I enjoy taking ideas from a working prototype to a complete application—designing the APIs, connecting the AI or ML components, handling the infrastructure, and making the system reliable enough to actually use."
 ];
+
