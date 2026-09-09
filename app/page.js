@@ -13,7 +13,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: "https://ayushpawshe.pages.dev",
-    title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+    title: "Ayush Pawshe - Software Developer | Backend & AI",
     description:
       "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
     images: [
@@ -21,7 +21,7 @@ export const metadata = {
         url: "https://ayushpawshe.pages.dev/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ayush Pawshe – API Infrastructure & Backend Engineer portfolio preview",
+        alt: "Ayush Pawshe - Software Developer | Backend & AI",
         type: "image/png",
       },
     ],

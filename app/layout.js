@@ -1,46 +1,43 @@
 import "./globals.css";
 
 export const metadata = {
-  // ── Core ──────────────────────────────────────────────────────────────────
   metadataBase: new URL("https://ayushpawshe.pages.dev"),
 
-  title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+  title: "Ayush Pawshe - Software Developer | Backend & AI",
   description:
-    "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+    "Software Developer building backend systems and AI-powered applications with Python, FastAPI, PostgreSQL, Redis, and modern AI/ML technologies.",
 
-  // ── Open Graph (LinkedIn, Facebook, iMessage, Slack …) ───────────────────
   openGraph: {
     type: "website",
     url: "https://ayushpawshe.pages.dev",
     siteName: "Ayush Pawshe Portfolio",
-    title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+    title: "Ayush Pawshe - Software Developer | Backend & AI",
     description:
-      "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+      "Software Developer building backend systems and AI-powered applications with Python, FastAPI, PostgreSQL, Redis, and modern AI/ML technologies.",
     images: [
       {
         url: "https://ayushpawshe.pages.dev/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ayush Pawshe – API Infrastructure & Backend Engineer portfolio preview",
+        alt: "Ayush Pawshe - Software Developer | Backend & AI portfolio",
         type: "image/png",
       },
     ],
     locale: "en_US",
   },
 
-  // ── Twitter / X Card ──────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Ayush Pawshe - API Infrastructure & Backend Engineer",
+    title: "Ayush Pawshe - Software Developer | Backend & AI",
     description:
-      "Backend engineer focused on async systems, scalable APIs, and intelligent applications. Explore my featured projects, system designs, and technical experience.",
+      "Building backend systems and AI-powered applications with Python, FastAPI, PostgreSQL, Redis, and modern AI/ML technologies.",
     images: ["https://ayushpawshe.pages.dev/og-image.png"],
   },
 
-  // ── Additional SEO ─────────────────────────────────────────────────────────
   alternates: {
     canonical: "https://ayushpawshe.pages.dev",
   },
+
   robots: {
     index: true,
     follow: true,
